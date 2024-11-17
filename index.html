@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Before Spotify</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .message {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust to truly center */
+            font-size: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .redirect {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message">
+        <p>Enjoy this message! You will be redirected to Spotify soon...</p>
+    </div>
+
+    <div class="redirect">
+        <p>Redirecting to Spotify...</p>
+    </div>
+
+    <script>
+        // Redirect after 5 seconds
+        setTimeout(function() {
+            window.location.href = "spotify://";  // Spotify deep link to open the app
+        }, 5000); // 5 seconds
+
+        // Optionally, show a redirect message or something before redirect
+        setTimeout(function() {
+            document.querySelector('.message').style.display = 'none';
+            document.querySelector('.redirect').style.display = 'block';
+        }, 4000); // After 4 seconds, show the redirect message
+    </script>
+
+</body>
+</html>
